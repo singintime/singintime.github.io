@@ -7,12 +7,7 @@ repo root (`.nojekyll` disables Jekyll processing).
 ## Structure
 
 ```
-index.html              GENERATED single-page parallax scroller — do not edit directly
-build.sh                Concatenates sections/*.html into index.html (no deps; just sh)
-sections/               The home page in chunks — edit these, then run ./build.sh
-  _head.html              <head>, skip link, sticky header/nav, opening <main>
-  home.html  music.html  plugins.html  research.html  about.html
-  _foot.html              closing <main>, footer
+index.html              Single-page parallax scroller — the home page, hand-edited
 plugins/index.html      Plugins index (deep page)
 plugins/duono/index.html  Duono landing page (the donationware page)
 cv/index.html           CV (migrated in from the old standalone repo)
@@ -26,19 +21,12 @@ assets/
 
 ### Editing the home page
 
-The home page is a single scrolling page with one full-height section per craft,
-each with its own fixed background photo (parallax). The sections live as separate
-files in `sections/`; `index.html` is assembled from them:
-
-```sh
-./build.sh    # re-run after editing any sections/*.html, commit the new index.html
-```
-
-This keeps section sources separate while still serving plain static HTML — there is
-no build step on GitHub's side. Parallax is pure CSS and is disabled automatically on
-small screens and for visitors with `prefers-reduced-motion`. Backgrounds are wired to
-`.panel--<name>` rules in `main.css`; swap a `bg-*.jpg` (prefer a personal photo over
-stock) and re-run nothing — the CSS already points at the path.
+The home page is a single scrolling page with one full-height `<section class="panel">`
+per craft, each with its own fixed background photo (parallax). It's a single
+hand-edited `index.html` — no build step. Parallax is pure CSS and is disabled
+automatically on small screens and for visitors with `prefers-reduced-motion`.
+Backgrounds are wired to `.panel--<name>` rules in `main.css`; swap a `bg-*.jpg`
+(prefer a personal photo over stock) and the CSS already points at the path.
 
 ## Brand tokens
 
@@ -50,7 +38,7 @@ Type is Outfit Light throughout; hierarchy comes from size + color, not weight.
 
 - `plugins/duono/index.html`: replace `https://YOUR-STORE.lemonsqueezy.com/buy/duono`
   (two places) with your real Lemon Squeezy checkout URL, and link the manual PDF.
-- `sections/*.html`: tweak the hero/section copy to taste, then run `./build.sh`.
+- `index.html`: tweak the hero/section copy to taste.
 - Replace stock `bg-*.jpg` backgrounds with personal photos as you get them
   (see `assets/img/CREDITS.md` for current sources).
 
