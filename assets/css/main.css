@@ -35,7 +35,7 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 
 body {
   margin: 0;
@@ -112,7 +112,7 @@ a:hover { color: var(--accent-bright); }
   color: #1a1714;
   box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset, 0 8px 24px rgba(0,0,0,0.45);
 }
-.btn-primary:hover { color: #1a1714; transform: translateY(-1px); box-shadow: 0 1px 0 rgba(255,255,255,0.25) inset, 0 12px 30px rgba(0,0,0,0.55); }
+.btn-primary:hover { color: #1a1714; box-shadow: 0 1px 0 rgba(255,255,255,0.25) inset, 0 12px 30px rgba(0,0,0,0.55); }
 .btn-ghost { border-color: var(--border); color: var(--accent); }
 .btn-ghost:hover { border-color: var(--accent); }
 .btn-row { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; margin-top: 1.8rem; }
@@ -133,7 +133,7 @@ a:hover { color: var(--accent-bright); }
   box-shadow: 0 10px 30px rgba(0,0,0,0.35);
   transition: transform 0.15s ease, border-color 0.2s ease;
 }
-a.card:hover { transform: translateY(-3px); border-color: var(--accent); }
+a.card:hover { border-color: var(--accent); }
 .card h3 { margin-bottom: 0.35em; }
 .card p { margin: 0; color: var(--muted); font-size: 0.96rem; }
 .card .tag { display: inline-block; margin-top: 1rem; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
@@ -181,8 +181,173 @@ figcaption { margin-top: 0.9rem; color: var(--muted); font-size: 0.92rem; }
 .cv-list b { color: var(--text); font-weight: 300; }
 .cv-prose { color: var(--muted); max-width: 70ch; }
 
+/* =========================================================================
+   Single-page parallax scroller (home page only — deep pages use the
+   primitives above). Each .panel is a full-height section with its own
+   fixed background photo and a dark scrim that guarantees text contrast.
+   ========================================================================= */
+
+/* Skip link — visible only when focused (keyboard users) */
+.skip-link {
+  position: absolute; left: 0.75rem; top: -3rem; z-index: 50;
+  background: var(--accent-bright); color: #1a1714;
+  padding: 0.6rem 1rem; border-radius: 0 0 10px 10px;
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: 0; color: #1a1714; }
+
+.panel {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: clamp(5rem, 12vh, 8rem) 0 clamp(3.5rem, 8vh, 6rem);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* the parallax: bg stays put as content scrolls */
+  background-color: var(--bg);  /* fallback while the photo loads */
+}
+
+/* Dark scrim for legibility — heavier on the left where the text sits.
+   Keeps body text well above the WCAG 2.2 AA 4.5:1 ratio over any photo. */
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(100deg, rgba(13,12,11,0.94) 0%, rgba(13,12,11,0.82) 42%, rgba(13,12,11,0.52) 100%),
+    linear-gradient(to top, rgba(13,12,11,0.85), transparent 38%);
+}
+
+.panel-inner { position: relative; z-index: 1; max-width: 62ch; }
+.panel-inner .lead { color: var(--text); }
+.panel h1, .panel h2 { text-shadow: 0 2px 18px rgba(0,0,0,0.6); }
+
+/* Per-section backgrounds (swap the URL to retheme a section) */
+.panel--home     { background-image: url("/assets/img/bg-hero.jpg");     background-position: 72% center; }
+.panel--music    { background-image: url("/assets/img/bg-music.jpg");    background-position: 35% center; }
+.panel--plugins  { background-image: url("/assets/img/bg-plugins.jpg");  background-position: center 35%; }
+.panel--research { background-image: url("/assets/img/bg-research.jpg"); background-position: center 40%; }
+.panel--about    { background-image: url("/assets/img/bg-about.jpg");    background-position: 60% 30%; }
+
+/* Scroll cue on the hero */
+.scroll-cue {
+  position: absolute; left: 50%; bottom: 1.6rem; transform: translateX(-50%);
+  z-index: 1;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.75rem; height: 2.75rem; border-radius: 999px;
+  border: 1px solid var(--bevel); color: var(--accent);
+  font-size: 1.1rem; line-height: 1;
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+  animation: cue-bob 2.2s ease-in-out infinite;
+}
+.scroll-cue:hover { color: var(--accent-bright); border-color: var(--accent); }
+@keyframes cue-bob { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
+
+/* Contact list in the About panel */
+.contact-list { list-style: none; padding: 0; margin: 1.6rem 0 0; display: grid; gap: 0.7rem; }
+.contact-list li { color: var(--text); }
+.contact-label {
+  display: inline-block; min-width: 6.5rem;
+  color: var(--muted); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible, .btn:focus-visible {
+  outline: 2px solid var(--accent-bright);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* iOS (and small screens) mishandle background-attachment: fixed — pin to scroll
+   there to avoid the zoomed/jumpy bug, losing only the parallax depth. */
+@media (max-width: 820px) {
+  .panel { background-attachment: scroll; }
+}
+
+/* Respect users who ask for less motion: no parallax, no smooth scroll, no bob. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .panel { background-attachment: scroll; }
+  .scroll-cue { animation: none; }
+}
+
+/* =========================================================================
+   Light document body — deep pages only (add class="page-light" to <body>).
+   The page canvas turns white with dark, warm text; the dark "islands"
+   (sticky header, cards, feature panels, spec chips, the buttons) keep their
+   dark treatment by restoring the original tokens on themselves. The home
+   scroller never gets this class, so it stays fully dark.
+   ========================================================================= */
+.page-light {
+  /* Canvas palette: warm near-black text on white (all ≥ 4.5:1 on #fff). */
+  --text:          #1f1b16;
+  --muted:         #695c4d;
+  --accent:        #795a2c;
+  --accent-bright: #241c14;
+  background: #ffffff;
+  color: var(--text);
+}
+.page-light::before { display: none; } /* drop the dark radial wash */
+
+/* Dark islands: re-declare the original dark-theme tokens on the components
+   themselves, so their inner text stays cream while their dark backgrounds
+   (the untouched --panel / --border tokens) remain dark on the white page. */
+.page-light .site-head,
+.page-light .site-head,
+.page-light .btn-primary,
+.page-light .btn-ghost {
+  --text:          #cdbfae;
+  --muted:         #a09080;
+  --accent:        #c8b89a;
+  --accent-bright: #e4d6ba;
+}
+
+/* Content panels (cards, feature boxes, spec chips) are the inverse of the
+   dark theme: filled with the brand sand (the old foreground colour), with
+   near-black text (the old background colour). */
+.page-light .card,
+.page-light .feature,
+.page-light .specs li {
+  background: #c8b89a;            /* sand — was the accent/foreground */
+  border: 1px solid #b29c74;
+  box-shadow: 0 8px 22px rgba(20, 18, 16, 0.14);
+  color: #161310;                /* near-black — was the background */
+  --text:          #161310;
+  --muted:         #36302a;
+  --accent:        #161310;
+  --accent-bright: #161310;
+}
+.page-light a.card:hover { border-color: #161310; }
+
+/* The ghost button relies on the (now light) page behind it, so give it a
+   dark fill on light pages to keep it a dark pill like everything else. */
+.page-light .btn-ghost {
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border-color: var(--bevel);
+}
+.page-light .btn-ghost:hover { border-color: var(--accent); }
+
+/* The cream accent pill needs no border or beveled rim on white — they were
+   only there to lift it off the dark page. Flatten to a clean soft shadow. */
+.page-light .btn-primary {
+  border: 0;
+  box-shadow: 0 6px 16px rgba(20, 18, 16, 0.18);
+}
+.page-light .btn-primary:hover {
+  box-shadow: 0 9px 22px rgba(20, 18, 16, 0.24);
+}
+
 /* ---- Responsive nav ----------------------------------------------------- */
-@media (max-width: 540px) {
-  .nav { gap: 1rem; }
-  .nav a { font-size: 0.88rem; }
+@media (max-width: 600px) {
+  /* Stack the header: wordmark on top, nav links centered below — keeps the
+     home link (the wordmark) available on every page, including deep pages. */
+  html { scroll-padding-top: 92px; }
+  .site-head .wrap { flex-direction: column; height: auto; gap: 0.3rem; padding-top: 0.55rem; padding-bottom: 0.55rem; }
+  .wordmark { font-size: 1.05rem; }
+  .nav { gap: 0.4rem 0.85rem; flex-wrap: wrap; justify-content: center; }
+  .nav a { font-size: 0.82rem; letter-spacing: 0.02em; }
 }
