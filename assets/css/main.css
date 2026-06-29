@@ -120,7 +120,7 @@ a:hover { color: var(--accent-bright); }
 .btn-row { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; margin-top: 1.8rem; }
 
 /* ---- Plugin hero shot --------------------------------------------------- */
-.plugin-shot { margin-top: 2.6rem; max-width: 540px; }
+.plugin-shot { margin: 2.6rem auto 0; max-width: 540px; }
 .plugin-shot img { width: 100%; height: auto; filter: drop-shadow(0 20px 44px rgba(0,0,0,0.55)); }
 
 /* ---- Cards (section grid) ----------------------------------------------- */
