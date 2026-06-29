@@ -63,6 +63,9 @@ body::before {
 
 /* ---- Layout primitives -------------------------------------------------- */
 .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
+/* The scroller widens its band so the header, footer and panel content all
+   share one cap; deep pages keep the narrower document measure. */
+body:not(.page-light) { --maxw: 1440px; }
 section { padding: clamp(2.5rem, 7vw, 5rem) 0; }
 .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); border: 0; margin: 0; }
 
@@ -82,8 +85,7 @@ a:hover { color: var(--accent-bright); }
 /* ---- Header / nav ------------------------------------------------------- */
 .site-head {
   position: sticky; top: 0; z-index: 10;
-  backdrop-filter: blur(10px);
-  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
 .site-head .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
@@ -203,7 +205,7 @@ figcaption { margin-top: 0.9rem; color: var(--muted); font-size: 0.92rem; }
   display: flex;
   align-items: center;
   padding: clamp(5rem, 12vh, 8rem) 0 clamp(3.5rem, 8vh, 6rem);
-  background-position: center center;
+  background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed; /* the parallax: bg stays put as content scrolls */
@@ -227,16 +229,26 @@ figcaption { margin-top: 0.9rem; color: var(--muted); font-size: 0.92rem; }
 .panel h1, .panel h2 { text-shadow: 0 2px 18px rgba(0,0,0,0.6); }
 
 /* Per-section backgrounds (swap the URL to retheme a section) */
-.panel--home     { background-image: url("/assets/img/bg-hero.jpg");     background-position: 72% center; }
-.panel--music    { background-image: url("/assets/img/bg-music.jpg");    background-position: 35% center; }
-.panel--plugins  { background-image: url("/assets/img/bg-plugins.jpg");  background-position: center 35%; }
-.panel--research { background-image: url("/assets/img/bg-research.jpg"); background-position: center 40%; }
-.panel--about    { background-image: url("/assets/img/bg-about.jpg");    background-position: 60% 30%; }
+.panel--home     { background-image: url("/assets/img/bg-hero.jpg");     background-position: 72% top; }
+.panel--music    { background-image: url("/assets/img/bg-music.jpg");    background-position: 35% top; }
+.panel--plugins  { background-image: url("/assets/img/bg-plugins.jpg");  background-position: center top; }
+.panel--research { background-image: url("/assets/img/bg-research.jpg"); background-position: center top; }
+.panel--about    { background-image: url("/assets/img/bg-about.jpg");    background-position: 60% top; }
 
-/* Left-anchored, wider column — hugs the dark side of each photo (where the
-   scrim is heaviest) instead of floating in a centred column. */
-.panel .wrap { max-width: none; width: 100%; margin: 0; padding-left: clamp(1.5rem, 7vw, 7.5rem); padding-right: 1.5rem; }
-.panel .panel-inner { max-width: 56ch; }
+/* Content sits in a column that hugs the dark side of each photo (where the
+   scrim is heaviest). The band is capped and centred, so on very wide screens
+   the columns stay in a comfortable middle zone instead of gluing to the
+   viewport edges — while the photos keep bleeding full-width. */
+.panel .wrap { width: 100%; padding: 0; }
+/* The content column hugs the dark side of each photo. Its inset is responsive
+   below the --maxw band, then locks to the band edge above it — so on very wide
+   screens the column stays in a centred band rather than gluing to the edge,
+   while the photo keeps bleeding full-width. */
+.panel .panel-inner {
+  max-width: 56ch;
+  margin-left: max(clamp(1.5rem, 7vw, 7.5rem), calc((100% - var(--maxw)) / 2 + 7.5rem));
+  margin-right: 1.5rem;
+}
 
 /* Outfit pushed to an editorial display scale — no new face, just size. */
 .panel h1 { font-size: clamp(2.7rem, 8.5vw, 6rem); letter-spacing: -0.02em; line-height: 1.0; }
@@ -267,7 +279,11 @@ figcaption { margin-top: 0.9rem; color: var(--muted); font-size: 0.92rem; }
    left-aligned, since right-aligned body text is harder to read there. */
 @media (min-width: 641px) {
   .panel.align-right .wrap { padding-left: 1.5rem; padding-right: clamp(1.5rem, 7vw, 7.5rem); }
-  .panel.align-right .panel-inner { margin-left: auto; text-align: right; }
+  .panel.align-right .panel-inner {
+    margin-left: auto;
+    margin-right: max(clamp(1.5rem, 7vw, 7.5rem), calc((100% - var(--maxw)) / 2 + 7.5rem));
+    text-align: right;
+  }
   .panel.align-right .btn-row { justify-content: flex-end; }
   .panel.align-right::before {
     background:

@@ -67,9 +67,9 @@
             <h3>Mono-safe by construction</h3>
             <p>
               Fold Duono's output to mono and null it against the dry signal and
-              you get digital silence — about −319&nbsp;dBFS, the floating-point
-              floor. It isn't "good enough," it's <em>identical</em>. Many
-              wideners can't pass this test.
+              you get digital silence. It isn't "good enough," it's
+              <em>identical</em> — sample for sample. Many wideners can't pass
+              this test.
             </p>
           </div>
           <div class="feature">
@@ -93,19 +93,13 @@
         <p class="eyebrow">Don't take my word for it</p>
         <h2>The null test.</h2>
         <p style="max-width: 62ch;">
-          Widen a mono source, sum the output back to mono, and subtract the
-          original. With Duono the difference is a flat line — silence. Here it is
-          on a dense, detuned saw chord at full width:
+          Prove it in your own DAW. Put Duono on a mono source and widen it, then
+          duplicate the track and sum Duono's stereo output back to mono. Play
+          that against the untouched dry signal with one of the two tracks'
+          polarity flipped: the duplicates cancel out completely, leaving a flat
+          line — silence. Most wideners leave an audible residue here. Duono
+          leaves nothing.
         </p>
-        <figure>
-          <img src="/assets/img/duono-null-proof.png"
-               alt="Top: Duono's mono fold-down sitting exactly on top of the dry signal. Bottom: the null residual, a flat line at -319 dBFS — digital silence." />
-          <figcaption>
-            Top — Duono's mono fold-down (dashed) lands exactly on the dry signal
-            (solid). Bottom — the residual after subtraction: a flat line at
-            −319&nbsp;dBFS, i.e. digital silence. Try it yourself in your DAW.
-          </figcaption>
-        </figure>
       </div>
     </section>
 
