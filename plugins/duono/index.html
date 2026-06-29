@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Duono — Mono-to-Stereo Widener · Stefano Baldan</title>
+  <meta name="description" content="Duono turns mono into wide, natural stereo with one knob — and folds back to mono perfectly. Free VST3 / AU / CLAP plugin." />
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:title" content="Duono — Mono-to-Stereo Widener" />
+  <meta property="og:description" content="Wide where it counts. Identical where it matters. A stereo widener you can trust in mono." />
+  <meta property="og:type" content="website" />
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap">
+      <a class="wordmark" href="/">Stefano&nbsp;Baldan</a>
+      <nav class="nav">
+        <a href="/#work">Work</a>
+        <a href="/plugins/" aria-current="page">Plugins</a>
+        <a href="/cv/">CV</a>
+        <a href="mailto:singintime@gmail.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -------------------------------------------------------------- -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Mono-to-stereo widener · VST3 · AU · CLAP</p>
+        <h1>Duono</h1>
+        <p class="lead" style="max-width: 56ch;">
+          Turn a mono source into a wide, natural stereo image with a single knob —
+          then fold it back to mono and get your original signal back, sample for
+          sample. <span class="accent">Wide where it counts. Identical where it matters.</span>
+        </p>
+        <div class="btn-row">
+          <!-- EDIT ME: paste your Lemon Squeezy product/checkout URL here. -->
+          <a class="btn btn-primary" href="https://YOUR-STORE.lemonsqueezy.com/buy/duono">Download free — pay what you want</a>
+          <a class="btn btn-ghost" href="#proof">See the proof</a>
+        </div>
+        <div class="plugin-shot">
+          <img src="/assets/img/duono-ui.png" width="1020" height="540"
+               alt="The Duono plugin: a dark panel reading STEFANO BALDAN / DUONO / MONO TO STEREO on the left, with a single Width knob set to 100% on the right." />
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- THE TWO CLAIMS ---------------------------------------------------- -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Why it's different</p>
+        <h2>Most wideners make you choose. Duono doesn't.</h2>
+        <p class="lead muted" style="max-width: 62ch;">
+          Width or a clean mono mix — you usually get one at the expense of the
+          other. Duono gives you both, by design.
+        </p>
+
+        <div class="features" style="margin-top: 2.2rem;">
+          <div class="feature">
+            <h3>Mono-safe by construction</h3>
+            <p>
+              Fold Duono's output to mono and null it against the dry signal and
+              you get digital silence — about −319&nbsp;dBFS, the floating-point
+              floor. It isn't "good enough," it's <em>identical</em>. Many
+              wideners can't pass this test.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>No tonal coloration</h3>
+            <p>
+              Duono only ever <em>adds</em> energy to the sides — it never carves
+              notches out of your sound. Its two channels differ in phase, not
+              level, and stay dead-balanced. Allpass-based wideners smear phase
+              instead, leaving comb notches and lopsided levels.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- PROOF ------------------------------------------------------------- -->
+    <section id="proof">
+      <div class="wrap">
+        <p class="eyebrow">Don't take my word for it</p>
+        <h2>The null test.</h2>
+        <p style="max-width: 62ch;">
+          Widen a mono source, sum the output back to mono, and subtract the
+          original. With Duono the difference is a flat line — silence. Here it is
+          on a dense, detuned saw chord at full width:
+        </p>
+        <figure>
+          <img src="/assets/img/duono-null-proof.png"
+               alt="Top: Duono's mono fold-down sitting exactly on top of the dry signal. Bottom: the null residual, a flat line at -319 dBFS — digital silence." />
+          <figcaption>
+            Top — Duono's mono fold-down (dashed) lands exactly on the dry signal
+            (solid). Bottom — the residual after subtraction: a flat line at
+            −319&nbsp;dBFS, i.e. digital silence. Try it yourself in your DAW.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- WHERE IT SHINES --------------------------------------------------- -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Where it shines</p>
+        <h2>Made for organic, multi-frequency material.</h2>
+        <p class="lead" style="max-width: 64ch;">
+          Bowed strings, whistles, harps, double bass, voices, lush pads — sources
+          that spread energy across dozens of partials at once. Each partial lands
+          in a slightly different spot in the image, exactly how a real instrument
+          radiates into a room. They bloom into a wide, three-dimensional picture
+          instead of sounding "processed."
+        </p>
+        <p class="muted" style="max-width: 64ch;">
+          One <span class="accent">Width</span> knob, 0–100%. That's the whole
+          plugin. No menus, no modes, no mono-check switch — because there's
+          nothing to check.
+        </p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- SPECS ------------------------------------------------------------- -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Compatibility</p>
+        <h2>Drops into your session.</h2>
+        <ul class="specs" style="margin-top: 1.6rem;">
+          <li><b>Formats</b> VST3 · Audio Unit · CLAP</li>
+          <li><b>macOS</b> 10.13+ · Apple Silicon &amp; Intel · signed &amp; notarized</li>
+          <li><b>Windows</b> 64-bit</li>
+          <li><b>Routing</b> Mono in → stereo out</li>
+          <li><b>Latency</b> ~3 ms, reported for auto-compensation</li>
+          <li><b>Price</b> Free · pay what you want</li>
+        </ul>
+        <div class="btn-row">
+          <!-- EDIT ME: same Lemon Squeezy URL as the hero. -->
+          <a class="btn btn-primary" href="https://YOUR-STORE.lemonsqueezy.com/buy/duono">Get Duono</a>
+          <!-- EDIT ME: link the hosted manual PDF once uploaded. -->
+          <a class="btn btn-ghost" href="#">Read the manual</a>
+        </div>
+        <p class="muted" style="margin-top: 1.4rem; font-size: 0.92rem;">
+          Duono is free. If it earns a place in your sessions, name your own price
+          to fund the next plugin — and hear about it first.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span>© 2026 Stefano Baldan</span>
+      <span>
+        <a href="mailto:singintime@gmail.com">singintime@gmail.com</a> ·
+        <a href="https://github.com/singintime">github.com/singintime</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
