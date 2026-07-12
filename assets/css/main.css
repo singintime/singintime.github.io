@@ -88,6 +88,10 @@ a:hover { color: var(--accent-bright); }
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
+/* Chrome (header/footer) stays a fixed width on every page, independent of the
+   per-page content band (home runs at 1440px, deep pages at 980px) so the bar
+   looks identical across the board. */
+.site-head .wrap, .site-foot .wrap { max-width: 980px; }
 .site-head .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
 .wordmark { color: var(--accent-bright); font-size: 1.15rem; letter-spacing: 0.06em; }
 .wordmark:hover { color: var(--accent-bright); }
