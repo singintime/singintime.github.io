@@ -127,6 +127,18 @@ a:hover { color: var(--accent-bright); }
 .plugin-shot { margin-top: 2.6rem; }
 .plugin-shot img { width: 100%; height: auto; filter: drop-shadow(0 20px 44px rgba(0,0,0,0.55)); }
 
+/* ---- Video embed --------------------------------------------------------- */
+.video-embed {
+  margin-top: 2rem;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border);
+  border-top-color: var(--bevel);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 20px 44px rgba(0,0,0,0.55);
+}
+.video-embed iframe { display: block; width: 100%; height: 100%; border: 0; }
+
 /* ---- Cards (section grid) ----------------------------------------------- */
 .grid { display: grid; gap: 1.1rem; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
 .card {
