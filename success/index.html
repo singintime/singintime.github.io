@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>You're all set — Duono · Stefano Baldan</title>
+  <title>You're all set · Stefano Baldan</title>
   <meta name="robots" content="noindex" />
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/css/main.css" />
+  <script src="/assets/js/checkout-context.js" defer></script>
 </head>
 <body class="page-light">
   <header class="site-head">
@@ -28,13 +29,13 @@
         <p class="eyebrow">Order confirmed</p>
         <h1>You're all set.</h1>
         <p class="lead" style="max-width: 52ch;">
-          Check your inbox — Polar has sent you a download link for Duono.
-          If you paid something: thank you. It goes directly toward the next
-          plugin.
+          Check your inbox — Polar has sent you a download link<span data-plugin-for></span>.
+          <span data-pricing="generic">Thank you for your support: it goes directly toward the next plugin.</span>
+          <span data-pricing="pwyw" hidden>If you paid something: thank you. It goes directly toward the next plugin.</span>
+          <span data-pricing="paid" hidden>Thanks for buying it: it goes directly toward the next plugin.</span>
         </p>
         <div class="btn-row">
-          <a class="btn btn-primary" href="/plugins/duono/">Back to Duono</a>
-          <a class="btn btn-ghost" href="/#plugins">All plugins</a>
+          <a class="btn btn-primary" href="/plugins/" data-plugin-back>All plugins</a>
         </div>
       </div>
     </section>

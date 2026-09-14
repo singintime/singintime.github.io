@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>No worries — Duono · Stefano Baldan</title>
+  <title>No worries · Stefano Baldan</title>
   <meta name="robots" content="noindex" />
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/css/main.css" />
+  <script src="/assets/js/checkout-context.js" defer></script>
 </head>
 <body class="page-light">
   <header class="site-head">
@@ -28,11 +29,11 @@
         <p class="eyebrow">No worries</p>
         <h1>Come back any time.</h1>
         <p class="lead" style="max-width: 52ch;">
-          Duono will be here whenever you're ready.
-          It's free — pay what you want, including nothing.
+          <span data-plugin-name>The plugin</span> will be here whenever you're ready.
+          <span data-pricing="pwyw" hidden>It's free — pay what you want, including nothing.</span>
         </p>
         <div class="btn-row">
-          <a class="btn btn-primary" href="/plugins/duono/">Back to Duono</a>
+          <a class="btn btn-primary" href="/plugins/" data-plugin-back>All plugins</a>
         </div>
       </div>
     </section>
