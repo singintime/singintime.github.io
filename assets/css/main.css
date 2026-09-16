@@ -124,7 +124,7 @@ a:hover { color: var(--accent-bright); }
 .btn-row { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; margin-top: 1.8rem; }
 
 /* ---- Plugin hero shot --------------------------------------------------- */
-.plugin-shot { margin-top: 2.6rem; }
+.plugin-shot { margin: 2.6rem auto 0; }
 .plugin-shot img { width: 100%; height: auto; filter: drop-shadow(0 20px 44px rgba(0,0,0,0.55)); }
 /* Tall UIs (Loko) would fill several screens at full band width. */
 .plugin-shot--portrait { max-width: 420px; }
@@ -173,6 +173,11 @@ figcaption { margin-top: 0.9rem; color: var(--muted); font-size: 0.92rem; }
 
 /* ---- Spec list ---------------------------------------------------------- */
 .specs { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+/* Six items would wrap 4 + 2 at some widths. A column floor of a third of the
+   row caps it at 3 per row, falling back to 2 + 2 + 2 and then 1. */
+.grid:has(> :nth-child(6):last-child) { grid-template-columns: repeat(auto-fit, minmax(max(230px, calc((100% - 2.2rem) / 3)), 1fr)); }
+.features:has(> :nth-child(6):last-child) { grid-template-columns: repeat(auto-fit, minmax(max(260px, calc((100% - 2.2rem) / 3)), 1fr)); }
+.specs:has(> :nth-child(6):last-child) { grid-template-columns: repeat(auto-fit, minmax(max(220px, calc((100% - 1.2rem) / 3)), 1fr)); }
 .specs li { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 0.8rem 1rem; }
 .specs b { color: var(--accent); font-weight: 300; display: block; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.15rem; }
 
