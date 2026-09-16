@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chambro · Stefano Baldan</title>
-  <!-- EDIT ME: remove noindex and write a real description at launch. -->
-  <meta name="robots" content="noindex" />
-  <meta name="description" content="Chambro — a new audio plugin by Stefano Baldan. Coming soon." />
+  <title>Chambro - Room Architect · Stefano Baldan</title>
+  <meta name="description" content="Chambro is a reverb built from a room's dimensions in metres and what its walls are made of. VST3 / AU / CLAP plugin." />
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/css/main.css" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:title" content="Chambro - Room Architect" />
+  <meta property="og:description" content="Type in 9 × 18 × 8 and the result is a chapel, because that's what a room that size does to sound." />
+  <meta property="og:type" content="website" />
 </head>
 <body class="page-light">
   <header class="site-head">
@@ -28,19 +31,234 @@
     <!-- HERO -->
     <section class="hero">
       <div class="wrap">
-        <!-- EDIT ME: category and formats, e.g. "Mono-to-stereo widener · VST3 · AU · CLAP". -->
-        <p class="eyebrow">Coming soon</p>
+        <p class="eyebrow">Room reverb · VST3 · AU · CLAP</p>
         <h1>Chambro</h1>
-        <!-- EDIT ME: one-paragraph pitch. -->
         <p class="lead" style="max-width: 56ch;">
-          A new plugin is on its way. Leave your email and I'll tell you the
-          moment it lands.
+          A reverb that asks for a room's dimensions in metres, and for what its
+          walls are made of. Type in 9&nbsp;×&nbsp;18&nbsp;×&nbsp;8 and the result
+          is a chapel, <span class="accent">because that's what a room that size
+          does to sound.</span>
         </p>
         <div class="btn-row">
-          <!-- EDIT ME: swap for the Polar checkout link at launch. -->
-          <a class="btn btn-primary" href="https://94e6972f.sibforms.com/serve/MUIFAEDe6noeU9dahFV-2h_Iv4wj2XWaArUhOeurMVy7OpMCoLAq81XwckuIBqO2scMz33lJu0ZMg1K45N9f3NemhLuC1GwizD1ABkMeRqAs8wA6ampKVITHsJzXTFp16NSw7YNs3Nv63K9KXOfF-9u6_9ED2WTFancJMv-xZ1ct4NDJgCzaiAIqAxAc1HUzKgn1gGPxNCqHrcvM4w==" target="_blank" rel="noopener">Get notified</a>
-          <a class="btn btn-ghost" href="/plugins/">All plugins</a>
+          <a class="btn btn-primary" href="https://buy.polar.sh/polar_cl_i4VahiuwBsLkCxrCiIFpY8UqTVKjfbSn4XX1z3ULPp0">Buy Chambro</a>
+          <a class="btn btn-ghost" href="/assets/docs/chambro-manual.pdf">Read the manual</a>
         </div>
+        <div class="plugin-shot">
+          <img src="/assets/img/chambro-ui.png" width="1504" height="1258"
+               alt="The Chambro plugin: a dark panel with a preset bar reading Default Chamber, and dials grouped as Room (Width 13 m, Length 21 m, Height 8.0 m, Clutter, Diffusion), Decay (Time, Damping), Space (Predelay, Stereo), Mix (Dry, Wet) and two Auto switches for Time and Predelay." />
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- WHY A ROOM -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Why a model of a room</p>
+        <h2>A description, not a parameter space.</h2>
+        <p class="lead" style="max-width: 62ch;">
+          Most reverbs describe a space in abstractions: size, density, a room
+          dial from 0 to 100. I build instruments that model physical things,
+          and one conviction runs through all of them: when the controls are
+          physical quantities - a length, a material - they stop needing to be
+          hunted. "Nine metres wide, stone walls" is a setting anyone can picture,
+          and one that matches a room that could exist is heard as a place
+          instead of audited as an effect.
+        </p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- MODEL VS IMPULSE RESPONSE -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Modelled, not captured</p>
+        <h2>Plausible rooms, including impossible ones.</h2>
+        <p class="lead muted" style="max-width: 62ch;">
+          An impulse response is a photograph of a room: exact, and frozen at one
+          size, one material and one decay. Chambro is a render. Every setting
+          obeys the physics of rooms, and because the settings are independent,
+          rooms that can't exist are within reach.
+        </p>
+
+        <div class="features" style="margin-top: 2.2rem;">
+          <div class="feature">
+            <h3>A chapel in bathroom tiles</h3>
+            <p>The shape of a chapel with the walls of a tiled bathroom.</p>
+          </div>
+          <div class="feature">
+            <h3>A crypt that rings for a minute</h3>
+            <p>Stone walls, and a tail up to 60 seconds long.</p>
+          </div>
+          <div class="feature">
+            <h3>Mirrors, or perfect scatterers</h3>
+            <p>Walls at either extreme of roughness, and everything in between.</p>
+          </div>
+          <div class="feature">
+            <h3>A room that grows</h3>
+            <p>From a vocal booth into a hall over the course of a song.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- HOW IT WORKS -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">How it works</p>
+        <h2>Sixteen lines, tuned to the room.</h2>
+        <p class="lead" style="max-width: 62ch;">
+          At certain frequencies - a room's modes - sound bouncing between the
+          walls lines up with itself and rings on. The dimensions alone set those
+          frequencies, which is why a bathroom sings a note. Inside Chambro are
+          sixteen delay lines, each tuned to one of those modes: move a wall and
+          every line moves with it.
+        </p>
+        <p class="muted" style="max-width: 62ch;">
+          The lines feed back into each other through a mixer that's exactly
+          lossless, so the only thing shortening the tail is the absorption that
+          was asked for. <span class="accent">The Time dial means what it says.</span>
+        </p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- THE CONTROLS -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">The whole interface</p>
+        <h2>Size sets the character. Material sets the length.</h2>
+        <ul class="specs" style="margin-top: 1.6rem;">
+          <li><b>Width · Length · Height</b> 1 to 100&nbsp;m each</li>
+          <li><b>Clutter</b> How far the room is from an empty box</li>
+          <li><b>Diffusion</b> How much the walls scatter</li>
+          <li><b>Damping</b> How much treble the walls absorb</li>
+          <li><b>Time</b> 0.1 to 60&nbsp;s</li>
+          <li><b>Predelay</b> 0 to 250&nbsp;ms</li>
+          <li><b>Stereo</b> 0 to 200%, dry stays put</li>
+          <li><b>Dry · Wet</b> Levels in dB</li>
+        </ul>
+        <p class="lead" style="max-width: 62ch; margin-top: 2.2rem;">
+          Damping is really a material dial. A 4&nbsp;×&nbsp;5&nbsp;×&nbsp;3&nbsp;m
+          room, changing nothing else:
+        </p>
+        <ul class="specs">
+          <li><b>12% · 2.4&nbsp;s</b> Bare stone, tile</li>
+          <li><b>30% · 1.4&nbsp;s</b> Plaster, bare wood</li>
+          <li><b>48% · 0.8&nbsp;s</b> A rug, some furniture</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- AUTO -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Auto</p>
+        <h2>Let the room decide.</h2>
+        <p class="lead" style="max-width: 62ch;">
+          Two switches hand Time and Predelay over to the physics. Drag a wall
+          out and the decay lengthens, as it would.
+        </p>
+        <div class="features" style="margin-top: 2.2rem;">
+          <div class="feature">
+            <h3>Auto Time</h3>
+            <p>
+              Sabine's equation, the acousticians' standard for predicting how
+              long a real room reverberates:
+              T60&nbsp;=&nbsp;0.161&nbsp;×&nbsp;volume&nbsp;÷&nbsp;(surface&nbsp;×&nbsp;absorption).
+              Volume and surface come from the dimensions, absorption from
+              Damping.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Auto Predelay</h3>
+            <p>
+              The mean free path - the average distance sound travels between
+              two reflections - divided by the speed of sound. A vocal booth
+              answers in 4&nbsp;ms, a cathedral in 67.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- PRESETS -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Presets</p>
+        <h2>Sixteen rooms to start from.</h2>
+        <p class="lead" style="max-width: 62ch;">
+          Most are real kinds of space at real dimensions, with the decay
+          Sabine's equation gives for their size and materials. That's why the
+          Tiled Bathroom, at 2.2&nbsp;×&nbsp;3.0&nbsp;×&nbsp;2.5&nbsp;m, rings
+          longer than the Drum Room at six times its volume. A few, like the
+          Infinite Cavern and the Frozen Cathedral, are the impossible kind.
+        </p>
+        <p class="muted" style="max-width: 62ch;">
+          A tip from the manual: reach for Predelay before less Wet. Most "too
+          much reverb" is really "reverb too early".
+        </p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ACCESS + LICENSE -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Made for everyone</p>
+        <h2>Keyboard, screen readers, no accounts.</h2>
+        <div class="features" style="margin-top: 2.2rem;">
+          <div class="feature">
+            <h3>Accessible from the first release</h3>
+            <p>
+              Every control is reachable with Tab and nudged with the arrow
+              keys, preset bar included. Chambro works with VoiceOver, NVDA,
+              JAWS and Narrator, and every control has a spoken name and value.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>A license file, checked offline</h3>
+            <p>
+              A purchase comes with a license file by email. It's checked on the
+              computer itself, with no connection, account or activation, and it
+              keeps working on a new machine.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- SPECS -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Compatibility</p>
+        <h2>Drops into your session.</h2>
+        <ul class="specs" style="margin-top: 1.6rem;">
+          <li><b>Formats</b> VST3 · Audio Unit · CLAP</li>
+          <li><b>macOS</b> 10.15+ · Apple Silicon &amp; Intel</li>
+          <li><b>Windows</b> 64-bit</li>
+          <li><b>Presets</b> 16 rooms, real and impossible</li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://buy.polar.sh/polar_cl_i4VahiuwBsLkCxrCiIFpY8UqTVKjfbSn4XX1z3ULPp0">Get Chambro</a>
+          <a class="btn btn-ghost" href="https://buy.polar.sh/polar_cl_S79JXdgV21PTIykzU6jJbatLzAxSE127i2MSh3iq86X">Get Chambro + Loko</a>
+        </div>
+        <p class="muted" style="margin-top: 1.4rem; font-size: 0.92rem;">
+          Chambro builds the room, <a href="/plugins/loko/">Loko</a> places the
+          source inside it. The bundle is one license file for both.
+        </p>
       </div>
     </section>
   </main>

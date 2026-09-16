@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loko · Stefano Baldan</title>
-  <!-- EDIT ME: remove noindex and write a real description at launch. -->
-  <meta name="robots" content="noindex" />
-  <meta name="description" content="Loko — a new audio plugin by Stefano Baldan. Coming soon." />
+  <title>Loko - Binaural Space · Stefano Baldan</title>
+  <meta name="description" content="Loko places a sound around the listener's head - at a bearing, a height and a distance - from a physical model of a head and ear. VST3 / AU / CLAP plugin." />
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/css/main.css" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:title" content="Loko - Binaural Space" />
+  <meta property="og:description" content="Put a sound somewhere around the listener's head, rather than somewhere on a line between two speakers." />
+  <meta property="og:type" content="website" />
 </head>
 <body class="page-light">
   <header class="site-head">
@@ -28,19 +31,223 @@
     <!-- HERO -->
     <section class="hero">
       <div class="wrap">
-        <!-- EDIT ME: category and formats, e.g. "Mono-to-stereo widener · VST3 · AU · CLAP". -->
-        <p class="eyebrow">Coming soon</p>
+        <p class="eyebrow">Binaural space · VST3 · AU · CLAP</p>
         <h1>Loko</h1>
-        <!-- EDIT ME: one-paragraph pitch. -->
         <p class="lead" style="max-width: 56ch;">
-          A new plugin is on its way. Leave your email and I'll tell you the
-          moment it lands.
+          Put a sound somewhere around the listener's head - at a bearing, a
+          height and a distance that can be pointed at, rather than somewhere on
+          a line between two speakers. <span class="accent">Built for headphones.</span>
         </p>
         <div class="btn-row">
-          <!-- EDIT ME: swap for the Polar checkout link at launch. -->
-          <a class="btn btn-primary" href="https://94e6972f.sibforms.com/serve/MUIFAEDe6noeU9dahFV-2h_Iv4wj2XWaArUhOeurMVy7OpMCoLAq81XwckuIBqO2scMz33lJu0ZMg1K45N9f3NemhLuC1GwizD1ABkMeRqAs8wA6ampKVITHsJzXTFp16NSw7YNs3Nv63K9KXOfF-9u6_9ED2WTFancJMv-xZ1ct4NDJgCzaiAIqAxAc1HUzKgn1gGPxNCqHrcvM4w==" target="_blank" rel="noopener">Get notified</a>
-          <a class="btn btn-ghost" href="/plugins/">All plugins</a>
+          <a class="btn btn-primary" href="https://buy.polar.sh/polar_cl_ZxhKTqxUZcroNvevnrnIu41HvISJaqANDXhOD1bY7Gx">Buy Loko</a>
+          <a class="btn btn-ghost" href="/assets/docs/loko-manual.pdf">Read the manual</a>
         </div>
+        <div class="plugin-shot plugin-shot--portrait">
+          <img src="/assets/img/loko-ui.png" width="944" height="1698"
+               alt="The Loko plugin: a round placement disc labelled SOURCE POSITION with a head at its centre and dots for bearing, distance, elevation and width, above a 3D switch, a LIMITER lamp and five dials: Azimuth, Elevation, Distance, Width and Gain." />
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- WHY A HEAD -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Why a model of a head</p>
+        <h2>A pan pot changes level. Ears barely use it.</h2>
+        <p class="lead muted" style="max-width: 62ch;">
+          A pan pot changes the level of two channels, and that's all it does.
+          Real ears locate a sound from three other cues, and Loko renders all
+          of them.
+        </p>
+
+        <div class="features" style="margin-top: 2.2rem;">
+          <div class="feature">
+            <h3>Time</h3>
+            <p>
+              A source on the left reaches the left ear first, by up to three
+              quarters of a millisecond.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Shadow</h3>
+            <p>
+              The head blocks high frequencies on their way to the far ear, so
+              that ear hears the sound darker.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>The outer ear</h3>
+            <p>
+              Its folds carve notches into the spectrum that move as a source
+              rises. That's how height is heard, and part of what tells front
+              from back.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- MODEL VS RECORDING -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Computed, not recorded</p>
+        <h2>A render, not a photograph.</h2>
+        <p class="lead" style="max-width: 62ch;">
+          The usual way to get these cues is to record them, with microphones in
+          the ears of a real or dummy head. Loko computes them instead, from a
+          physical model: a 20&nbsp;cm sphere for the head and a simplified outer
+          ear. A camera can only shoot what was in front of it, while a render
+          can show a scene that never existed and still look right. That trade
+          buys two things a recording can't do.
+        </p>
+
+        <div class="features" style="margin-top: 2.2rem;">
+          <div class="feature">
+            <h3>Take the ear out, keep the head</h3>
+            <p>
+              A recorded response has the ear's colour baked into every
+              direction. In Loko the outer ear is a stage of its own: switching
+              3D off removes height and the ear's colouring, while left, right
+              and distance stay as they were.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Bring a source right up to the ear</h3>
+            <p>
+              Recorded responses are almost always taken a metre or two away. A
+              sphere has an answer at any distance, so a source at 2&nbsp;cm
+              sounds like it's <em>at</em> the ear - a different thing from a
+              loud source further away.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- HOW IT WORKS -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">How it works</p>
+        <h2>Each ear gets its own path.</h2>
+        <ul class="specs" style="margin-top: 1.6rem;">
+          <li><b>Delay</b> The travel time around the head. The difference between the ears is the time cue.</li>
+          <li><b>Head shadow</b> The far ear loses top end as the source swings round; the near ear gains up to 6&nbsp;dB.</li>
+          <li><b>Near field</b> Inside about a metre the ears drift apart, up to about 29&nbsp;dB at the closest distance.</li>
+          <li><b>Air absorption</b> Following the ISO standard: at 200&nbsp;m a source is 21&nbsp;dB down at 8&nbsp;kHz, on top of being quieter.</li>
+          <li><b>Outer ear</b> Two resonances and three notches, modelled on the most representative ear in a public database of measured heads.</li>
+          <li><b>Limiter</b> One, at 0&nbsp;dBFS, with the same gain on both ears. Below full scale the signal comes out bit for bit.</li>
+        </ul>
+        <p class="muted" style="margin-top: 1.4rem; max-width: 62ch;">
+          Loko renders the direct sound only, with no reflections and no tail.
+          The room belongs in a reverb on a send, after Loko - <a href="/plugins/chambro/">Chambro</a>,
+          for instance.
+        </p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- THE DISC -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">The whole interface</p>
+        <h2>One disc, five dials.</h2>
+        <p class="lead" style="max-width: 62ch;">
+          The pad is the view from above, with the head facing up the screen:
+          the dot's bearing is <span class="accent">Azimuth</span> and its
+          distance from the head is <span class="accent">Distance</span>. The
+          outer ring is <span class="accent">Elevation</span>, the inner ring is
+          <span class="accent">Width</span>. The rings sit at 0.02, 0.2, 2, 20
+          and 200&nbsp;m, so the close range gets as much room on screen as the
+          far one.
+        </p>
+        <div class="plugin-shot plugin-shot--portrait">
+          <img src="/assets/img/loko-disc.png" width="880" height="952"
+               alt="Close-up of Loko's placement disc: a head seen from above at the centre of concentric distance rings, a source dot at -29° and 2.5 m, an elevation dot at 20° on the outer ring and two width dots on the inner ring." />
+        </div>
+        <ul class="specs" style="margin-top: 2.2rem;">
+          <li><b>Azimuth</b> &minus;180° to +180°</li>
+          <li><b>Elevation</b> &minus;90° to +90°</li>
+          <li><b>Distance</b> 2&nbsp;cm to 200&nbsp;m, 0&nbsp;dB at 2&nbsp;m</li>
+          <li><b>Width</b> 0 to 100%, for stereo sources</li>
+          <li><b>Gain</b> &minus;48 to +48&nbsp;dB, ahead of the limiter</li>
+          <li><b>3D</b> Off leaves a strictly two-dimensional head</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- LATENCY + TIPS -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Latency, on purpose</p>
+        <h2>The delay is the effect.</h2>
+        <p class="lead" style="max-width: 62ch;">
+          A source 200&nbsp;m away arrives about 583&nbsp;ms late, and Loko
+          reports zero latency so the host doesn't compensate it away. Push a
+          part back with Distance before reaching for the fader: the delay and
+          the duller top end come along with the drop in level.
+        </p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ACCESS + LICENSE -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Made for everyone</p>
+        <h2>Keyboard, screen readers, no accounts.</h2>
+        <div class="features" style="margin-top: 2.2rem;">
+          <div class="feature">
+            <h3>Accessible from the first release</h3>
+            <p>
+              Every control is reachable with Tab and nudged with the arrow
+              keys, and the disc takes four Tab stops. Loko works with
+              VoiceOver, NVDA, JAWS and Narrator, and every control has a
+              spoken name and value.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>A license file, checked offline</h3>
+            <p>
+              A purchase comes with a license file by email. It's checked on the
+              computer itself, with no connection, account or activation, and it
+              keeps working on a new machine.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- SPECS -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Compatibility</p>
+        <h2>Drops into your session.</h2>
+        <ul class="specs" style="margin-top: 1.6rem;">
+          <li><b>Formats</b> VST3 · Audio Unit · CLAP</li>
+          <li><b>macOS</b> 10.15+ · Apple Silicon &amp; Intel</li>
+          <li><b>Windows</b> 64-bit</li>
+          <li><b>Latency</b> Reports zero, on purpose</li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://buy.polar.sh/polar_cl_ZxhKTqxUZcroNvevnrnIu41HvISJaqANDXhOD1bY7Gx">Get Loko</a>
+          <a class="btn btn-ghost" href="https://buy.polar.sh/polar_cl_S79JXdgV21PTIykzU6jJbatLzAxSE127i2MSh3iq86X">Get Loko + Chambro</a>
+        </div>
+        <p class="muted" style="margin-top: 1.4rem; font-size: 0.92rem;">
+          Loko places the source, <a href="/plugins/chambro/">Chambro</a> builds
+          the room around it. The bundle is one license file for both.
+        </p>
       </div>
     </section>
   </main>

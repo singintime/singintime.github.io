@@ -126,6 +126,8 @@ a:hover { color: var(--accent-bright); }
 /* ---- Plugin hero shot --------------------------------------------------- */
 .plugin-shot { margin-top: 2.6rem; }
 .plugin-shot img { width: 100%; height: auto; filter: drop-shadow(0 20px 44px rgba(0,0,0,0.55)); }
+/* Tall UIs (Loko) would fill several screens at full band width. */
+.plugin-shot--portrait { max-width: 420px; }
 
 /* ---- Video embed --------------------------------------------------------- */
 .video-embed {

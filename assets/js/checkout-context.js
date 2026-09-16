@@ -3,13 +3,15 @@
 // each plugin's Checkout Link carries its slug statically:
 //   Success URL  https://singintime.github.io/success/?plugin=loko&checkout_id={CHECKOUT_ID}
 //   Return URL   https://singintime.github.io/return/?plugin=loko
-// Unknown or missing slugs keep the generic copy.
+// Unknown or missing slugs keep the generic copy. A bundle has no page of its
+// own (`page: false`), so its back link stays on the plugins index.
 // `pricing` picks which [data-pricing] variant of the copy is shown.
 (function () {
   var PLUGINS = {
     duono: { name: 'Duono', pricing: 'pwyw' },
     loko: { name: 'Loko', pricing: 'paid' },
-    chambro: { name: 'Chambro', pricing: 'paid' }
+    chambro: { name: 'Chambro', pricing: 'paid' },
+    'chambro,loko': { name: 'Chambro and Loko', pricing: 'bundle', page: false }
   };
 
   var slug = new URLSearchParams(location.search).get('plugin');
@@ -30,7 +32,7 @@
   });
 
   var back = document.querySelector('[data-plugin-back]');
-  if (back) {
+  if (back && plugin.page !== false) {
     var all = back.cloneNode(false);
     all.removeAttribute('data-plugin-back');
     all.className = 'btn btn-ghost';
