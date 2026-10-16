@@ -61,19 +61,20 @@
     <ul>
       <li>Removed jQuery from the entire Miro web client: 36 incremental PRs across code owned by 26 teams, deleting 13.8K lines and ending with removal of the runtime global and the dependency. Self-initiated, AI-assisted.</li>
       <li>Consolidated dialog infrastructure to fix recurring focus-management bugs: migrated dialogs across 14 teams' code to the shared accessible dialog package and removed the deprecated imperative dialog service, finding collision guards that had silently never run. Scoped the remaining ~420-consumer migration.</li>
-      <li>Created 12 shared packages, including the canvas accessibility layer (adopted by 14 packages) and reduced-motion support (13 packages).</li>
+      <li>Created 12 shared packages, including the canvas accessibility layer (adopted by 14 packages), its keyboard-support framework for interactive canvas objects (adopted by 8 packages, from structured documents to AI workflow nodes) and reduced-motion support (13 packages).</li>
+      <li>Fixed screen-reader-triggered slowdowns on very large boards: 3x faster bounds computation for 10K-object selections (45 ms to 15 ms), plus bounds caching and debounced announcements.</li>
       <li>Delivered voice dictation end to end: core service, React components, AI chat integration, session token refresh, and screen-reader-verified error handling.</li>
-      <li>Built AI tooling to scale accessibility across a monorepo with 400+ active contributors: an accessibility skill distributed through the Claude marketplace, package-level agent instructions, and automated accessibility checker rules.</li>
-      <li>Led accessibility engineering towards WCAG and European Accessibility Act compliance; documented the architecture in ADRs and specs for keyboard support, virtual menus and multi-step actions.</li>
+      <li>Led the accessibility DevEx initiative for a monorepo with 400+ active contributors: domain-specific Claude skills distributed through the Claude marketplace, AI-friendly package instructions and specs, and automated accessibility checker rules.</li>
+      <li>Steered accessibility engineering towards WCAG 2.2 AA (W3C Recommendation, Oct 2023) and European Accessibility Act compliance (in force since June 2025); documented the architecture in ADRs and specs for keyboard support, virtual menus and multi-step actions.</li>
     </ul>
   </div>
   <div class="entry">
     <div class="row"><span><span class="role">Frontend Software Engineer</span><span class="sep">·</span><span class="org">Miro</span></span><span class="date">Nov 2021 – Mar 2024</span></div>
     <ul>
-      <li>Research and development of accessibility solutions for custom web content rendered in the HTML Canvas, personally driving the work from design through implementation.</li>
-      <li>Designed and built keyboard navigation across board objects, including navigation logic for free-form, non-grid Canvas layouts (nearest-object selection in four directions) and semantic object tab order.</li>
-      <li>Developed a DOM overlay that lets voice-control users interact with Canvas content without significantly affecting browser performance.</li>
-      <li>Built alternative views for text and images, with semantic positioning of board content.</li>
+      <li>Made Miro's HTML Canvas, invisible to standard web accessibility technologies, operable by keyboard, screen reader and voice-control users, driving the work from research and design through implementation.</li>
+      <li>Designed and built keyboard navigation across board objects: spatial navigation for free-form, non-grid layouts (nearest object in four directions) and a semantic tab order.</li>
+      <li>Developed a DOM overlay that exposes Canvas content to voice-control software, so users can act on board objects by voice.</li>
+      <li>Built alternative views of board text and images, ordered by their semantic position on the board.</li>
       <li>Improved rendering performance in the Miro client using the Canvas and WebGL APIs.</li>
     </ul>
   </div>
@@ -81,7 +82,7 @@
     <div class="row"><span><span class="role">Engineering Team Lead</span><span class="sep">·</span><span class="org">byrd</span></span><span class="date">Jan 2021 – Oct 2021</span></div>
     <p class="note">Logistics company - systems for shipping parcels from origin to destination</p>
     <ul>
-      <li>Lead and management of a full-stack development team of 4 people.</li>
+      <li>Led and managed a full-stack team of 4 engineers.</li>
       <li>Frontend development in Angular and TypeScript.</li>
       <li>Backend microservices built with Python, Flask, and SQLAlchemy.</li>
     </ul>
@@ -117,11 +118,11 @@
 
   <div class="skills">
     <h2>Technical skills</h2>
-    <p><b>Accessibility:</b> WCAG, keyboard and spatial navigation, voice-control support, DOM overlays for Canvas content, accessible-by-design practices</p>
     <p><b>Frontend:</b> TypeScript, React, JavaScript, HTML Canvas, WebGL, Three.js, design systems, Vitest, Node.js, Electron, Angular</p>
     <p><b>AI:</b> agentic coding with Claude Code, LLM-based tooling for code generation and automated accessibility checks</p>
-    <p><b>Backend &amp; other:</b> Python, Flask, SQLAlchemy, C/C++</p>
+    <p><b>Accessibility:</b> WCAG 2.2 AA, European Accessibility Act, keyboard and spatial navigation, screen readers, voice-control support, DOM overlays for Canvas content, accessible-by-design practices</p>
     <p><b>DSP &amp; audio:</b> Digital signal processing, physically-informed sound synthesis and analysis, audio and multimedia computing</p>
+    <p><b>Backend &amp; other:</b> Python, Flask, SQLAlchemy, C/C++</p>
     <p><b>Engineering practice:</b> Architecture and technical strategy, large-scale monorepo migrations, ADRs, RFCs, technical documentation</p>
   </div>
 
