@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV — Stefano Baldan</title>
-  <meta name="description" content="Curriculum vitae of Stefano Baldan — Staff Software Engineer: accessibility, frontend &amp; digital signal processing." />
+  <title>CV - Stefano Baldan</title>
+  <meta name="description" content="Curriculum vitae of Stefano Baldan - Staff Software Engineer: accessibility &amp; frontend platform." />
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/css/main.css" />
 </head>
@@ -28,18 +28,18 @@
         <p class="eyebrow">Curriculum vitae</p>
         <h1>Stefano Baldan <span class="muted" style="font-size: 0.4em; letter-spacing: 0.04em;">(he/him)</span></h1>
         <p class="lead" style="max-width: 64ch;">
-          Staff Software Engineer · Accessibility, Frontend &amp; Digital Signal Processing
+          Staff Software Engineer · Accessibility &amp; Frontend Platform
         </p>
         <p class="cv-prose" style="margin-top: 1rem;">
-          Staff-level software engineer with more than ten years of professional
-          experience in frontend development and Digital Signal Processing. Over
-          four years of leading technically complex accessibility engineering for a
-          large-scale HTML Canvas–based product, from architecture and design
-          through implementation, including the use of AI and LLMs to help hundreds
-          of developers write accessible-by-design code. Individual contributor with
-          a focus on architecture, technical strategy, informal leadership, and
-          multiplying the impact of other engineers. Background in music, sound
-          synthesis and multimedia computing.
+          Staff software engineer with more than ten years of professional
+          experience in frontend development. Five years leading accessibility
+          engineering for Miro's HTML Canvas–based product, from architecture and
+          design through implementation. Drives changes across team boundaries,
+          from shared accessibility packages adopted by over a dozen others to a
+          self-initiated migration through code owned by 26 teams, using AI and LLM
+          tooling to make large-scale work feasible and to help developers write
+          accessible-by-design code. Background in digital signal processing,
+          music, sound synthesis and multimedia computing.
         </p>
         <div class="cv-meta">
           <span><b>Email</b> <a href="mailto:stefanobaldan@mail.com">stefanobaldan@mail.com</a></span>
@@ -62,9 +62,12 @@
           <h3>Staff Software Engineer · Miro</h3>
           <a class="where" href="https://www.miro.com">miro.com</a>
           <ul>
-            <li>Led accessibility engineering for Miro's HTML Canvas–based product, driven by WCAG requirements, EU accessibility regulations, and the goal of reducing manually identified accessibility issues.</li>
-            <li>Used AI and LLM tooling to help hundreds of developers produce accessible-by-design code and to scale accessibility checks across the codebase.</li>
-            <li>Documented the accessibility architecture through ADRs, RFCs and technical documentation, enabling wider implementation across teams.</li>
+            <li>Removed jQuery from the entire Miro web client: 36 incremental PRs across code owned by 26 teams, deleting 13.8K lines and ending with removal of the runtime global and the dependency. Self-initiated, AI-assisted.</li>
+            <li>Consolidated dialog infrastructure to fix recurring focus-management bugs: migrated dialogs across 14 teams' code to the shared accessible dialog package and removed the deprecated imperative dialog service, finding collision guards that had silently never run. Scoped the remaining ~420-consumer migration.</li>
+            <li>Created 12 shared packages, including the canvas accessibility layer (adopted by 14 packages) and reduced-motion support (13 packages).</li>
+            <li>Delivered voice dictation end to end: core service, React components, AI chat integration, session token refresh, and screen-reader-verified error handling.</li>
+            <li>Built AI tooling to scale accessibility across a monorepo with 400+ active contributors: an accessibility skill distributed through the Claude marketplace, package-level agent instructions, and automated accessibility checker rules.</li>
+            <li>Led accessibility engineering towards WCAG and European Accessibility Act compliance; documented the architecture in ADRs and specs for keyboard support, virtual menus and multi-step actions.</li>
           </ul>
         </div>
 
@@ -85,7 +88,7 @@
           <p class="when">Jan 2021 → Oct 2021</p>
           <h3>Engineering Team Lead · byrd</h3>
           <a class="where" href="https://www.getbyrd.com">getbyrd.com</a>
-          <p class="detail">Logistics company — systems for shipping parcels from origin to destination.</p>
+          <p class="detail">Logistics company - systems for shipping parcels from origin to destination.</p>
           <ul>
             <li>Lead and management of a full-stack development team of 4 people.</li>
             <li>Frontend development in Angular and TypeScript.</li>
@@ -138,11 +141,11 @@
         <h2>Technical skills</h2>
         <ul class="cv-list">
           <li><b>Accessibility:</b> WCAG, keyboard and spatial navigation, voice-control support, DOM overlays for Canvas content, accessible-by-design practices</li>
-          <li><b>Frontend:</b> TypeScript, JavaScript, Angular, HTML Canvas, WebGL, Three.js, Node.js, Electron</li>
-          <li><b>AI:</b> LLM-based tooling for code generation and automated accessibility checks</li>
+          <li><b>Frontend:</b> TypeScript, React, JavaScript, HTML Canvas, WebGL, Three.js, design systems, Vitest, Node.js, Electron, Angular</li>
+          <li><b>AI:</b> agentic coding with Claude Code, LLM-based tooling for code generation and automated accessibility checks</li>
           <li><b>Backend &amp; other:</b> Python, Flask, SQLAlchemy, C/C++</li>
           <li><b>DSP &amp; audio:</b> Digital signal processing, physically-informed sound synthesis and analysis, audio and multimedia computing</li>
-          <li><b>Engineering practice:</b> Architecture and technical strategy, ADRs, RFCs, technical documentation</li>
+          <li><b>Engineering practice:</b> Architecture and technical strategy, large-scale monorepo migrations, ADRs, RFCs, technical documentation</li>
         </ul>
       </section>
 
@@ -171,15 +174,15 @@
       <section class="cv-section">
         <h2>Relevant projects</h2>
         <ul class="cv-list">
-          <li><b><a href="/plugins/">Audio plugins</a></b> — independent line of audio plugins built on physically and statistically grounded DSP (parametric and analytical methods), distributed via Polar.sh.</li>
-          <li><b><a href="https://singintime.github.io/vodit">vodit</a></b> — minimalist dependency injector. No frills, no dependencies, no decorators.</li>
-          <li><b><a href="https://github.com/SkATVG/SDT">SDT (Sound Design Toolkit)</a></b> — open-source C library for physically-based sound synthesis; developer and maintainer, 2014–2017.</li>
-          <li><b><a href="https://vimeo.com/86330894">MaIs</a></b> — performance presented in Milan in 2013. Co-author.</li>
-          <li><b><a href="https://youtu.be/0uxqhCS0GPg">Sonic Tennis</a></b> — audio-only game for iOS devices.</li>
-          <li><b><a href="http://emipiu.di.unimi.it">GlobeMX</a></b> — interactive HTML5 media player. Master's thesis project.</li>
-          <li><b><a href="https://github.com/singintime/ipcapture">IPCapture</a></b> — Processing library for acquiring MJPEG live streams.</li>
-          <li><b><a href="https://ludovico.lim.di.unimi.it/download/papers/SMC2012.pdf">Musica Sull'Acqua</a></b> — sonification of the civic aquarium of Milan.</li>
-          <li><b><a href="https://youtu.be/kEERdTvCbYI">Moonlanding</a></b> — interactive installation, Festival della Creatività, Florence, 2009. Sound designer.</li>
+          <li><b><a href="/plugins/">Audio plugins</a></b> - independent line of audio plugins built on physically and statistically grounded DSP (parametric and analytical methods), distributed via Polar.sh.</li>
+          <li><b><a href="https://singintime.github.io/vodit">vodit</a></b> - minimalist dependency injector. No frills, no dependencies, no decorators.</li>
+          <li><b><a href="https://github.com/SkATVG/SDT">SDT (Sound Design Toolkit)</a></b> - open-source C library for physically-based sound synthesis; developer and maintainer, 2014–2017.</li>
+          <li><b><a href="https://vimeo.com/86330894">MaIs</a></b> - performance presented in Milan in 2013. Co-author.</li>
+          <li><b><a href="https://youtu.be/0uxqhCS0GPg">Sonic Tennis</a></b> - audio-only game for iOS devices.</li>
+          <li><b><a href="http://emipiu.di.unimi.it">GlobeMX</a></b> - interactive HTML5 media player. Master's thesis project.</li>
+          <li><b><a href="https://github.com/singintime/ipcapture">IPCapture</a></b> - Processing library for acquiring MJPEG live streams.</li>
+          <li><b><a href="https://ludovico.lim.di.unimi.it/download/papers/SMC2012.pdf">Musica Sull'Acqua</a></b> - sonification of the civic aquarium of Milan.</li>
+          <li><b><a href="https://youtu.be/kEERdTvCbYI">Moonlanding</a></b> - interactive installation, Festival della Creatività, Florence, 2009. Sound designer.</li>
         </ul>
       </section>
 
